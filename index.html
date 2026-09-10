@@ -119,6 +119,8 @@
   .docs { display: grid; gap: 10px; }
   .doc { display: flex; gap: 14px; align-items: center; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: inherit; }
   .doc:hover { border-color: var(--accent); }
+  .doc > span:not(.ic):not(.go) { flex: 1 1 160px; min-width: 0; overflow-wrap: anywhere; }
+  .doc { flex-wrap: wrap; }
   .doc .ic { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 800; font-family: "Bricolage Grotesque", sans-serif; font-size: .8rem; flex: none; }
   .doc .t { font-weight: 700; }
   .doc .d { color: var(--ink-2); font-size: .92rem; }
