@@ -133,6 +133,25 @@
   tr.out td .firm { text-decoration: line-through; text-decoration-color: var(--ink-3); color: var(--ink-2); }
   .tnote { color: var(--ink-3); font-size: .88rem; }
 
+  /* Offer detail */
+  .offer { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 18px; }
+  .offer-head { display: flex; gap: 16px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+  .offer-head h3 { font-size: 1.35rem; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .offer-link { font-weight: 700; white-space: nowrap; }
+  .offer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
+  .offer-col { display: grid; gap: 8px; align-content: start; }
+  .offer-t { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; color: var(--ink-3); }
+  .offer-col ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; color: var(--ink-2); font-size: .95rem; }
+  .offer-col b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  details.menu > summary { cursor: pointer; font-weight: 700; color: var(--accent); list-style: none; }
+  details.menu > summary::-webkit-details-marker { display: none; }
+  details.menu > summary::before { content: "› "; }
+  details.menu[open] > summary::before { content: "⌄ "; }
+  details.menu .tablewrap { margin-top: 12px; }
+  details.menu table { min-width: 760px; }
+  details.menu tbody th { background: transparent; text-transform: none; letter-spacing: 0; font-size: .9rem; color: var(--ink); white-space: nowrap; }
+  details.menu td { font-size: .9rem; color: var(--ink-2); }
+
   /* Summary (minutes) */
   .minutes { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; display: grid; gap: 16px; }
   .minutes h3 { font-size: 1rem; }
@@ -225,6 +244,11 @@
               <span><span class="t">Caietul de sarcini, text integral</span><br><span class="d">Toate cele 25 de capitole, de citit direct pe telefon.</span></span>
               <span class="go">Mai jos ↓</span>
             </a>
+            <a class="doc" href="__CAMIGO_URL__" target="_blank" rel="noopener">
+              <span class="ic">PDF</span>
+              <span><span class="t">Oferta Camigo Healthy Kitchen (PDF, 11 pagini)</span><br><span class="d">Oferta de preț pentru anul școlar 2026-2027, cu gramaje, meniu pe 3 săptămâni și conformitate punct cu punct.</span></span>
+              <span class="go">__CAMIGO_GO__</span>
+            </a>
           </div>
         </div>
 
@@ -257,7 +281,7 @@
                 <tr>
                   <td><span class="firm">Camigo</span></td>
                   <td class="num">33 lei</td>
-                  <td>Au livrat la CNER anul trecut, opiniile sunt destul de ok.</td>
+                  <td>Au livrat la CNER anul trecut, opiniile sunt destul de ok. Supă + fel principal + pâine + gustare, luni–joi. <a href="#oferta-camigo">Detalii</a></td>
                   <td>CNER, Bălcescu, grădinițele și școala Camigo</td>
                   <td><span class="pill warm">Vine la degustare</span></td>
                 </tr>
@@ -293,6 +317,65 @@
             </table>
           </div>
           <p class="tnote">Prețul este per meniu, așa cum a fost ofertat în plic. Include tot ce cere caietul de sarcini: mâncare, transport, personal de servire, curățenie.</p>
+        </div>
+
+        <div class="block" id="oferta-camigo">
+          <h3>Ofertele în detaliu</h3>
+          <p class="sub">Publicăm aici ofertele scrise, pe măsură ce le primim în format electronic. Deocamdată avem oferta Camigo.</p>
+          <div class="offer">
+            <div class="offer-head">
+              <div>
+                <p class="eyebrow">Camigo Healthy Kitchen · Goron Publicity SRL</p>
+                <h3>33 lei / meniu / zi, TVA inclus</h3>
+              </div>
+              <a class="offer-link" href="__CAMIGO_URL__" target="_blank" rel="noopener">Oferta completă (PDF) ↗</a>
+            </div>
+            <div class="offer-grid">
+              <div class="offer-col">
+                <p class="offer-t">Pe farfurie, zilnic</p>
+                <ul>
+                  <li><b>200 ml</b> supă sau ciorbă</li>
+                  <li><b>250 g</b> fel principal, din care minimum 90 g componentă proteică (100 g la pește), 160 g garnitură, salată separat unde se potrivește</li>
+                  <li><b>50 g</b> pâine</li>
+                  <li><b>70 g</b> gustare: desert gătit de ei de 2 ori pe săptămână, fruct de 2 ori</li>
+                  <li>Total <b>620 g/ml</b> pe zi; fără băutură</li>
+                </ul>
+              </div>
+              <div class="offer-col">
+                <p class="offer-t">Cum lucrează</p>
+                <ul>
+                  <li>Meniu <b>luni–joi</b>, extindere la 5 zile la cerere</li>
+                  <li>Meniul se rotește pe <b>3 săptămâni</b>, adaptat sezonier; pește în fiecare săptămână</li>
+                  <li>Bucătărie proprie autorizată în Baciu, Str. Jupiter nr. 2A; gătit în ziua servirii, fără semipreparate, fără vegeta, fără maioneză și sosuri industriale</li>
+                  <li>Medic nutriționist angajat plus medic generalist colaborator, care verifică săptămânal sala de mese</li>
+                  <li>2 persoane la servire, curățenie și evacuarea resturilor incluse; grafic de curățenie zilnic</li>
+                </ul>
+              </div>
+              <div class="offer-col">
+                <p class="offer-t">Experiență și condiții</p>
+                <ul>
+                  <li>Anul trecut: <b>600 de copii</b> zilnic, în 6 instituții din Cluj-Napoca</li>
+                  <li>Preț ferm pe tot anul școlar, fără majorare unilaterală; meniuri gratuite pentru învățătoare, personal și câte unul pe clasă</li>
+                  <li>Meniuri separate pentru alergii și intoleranțe, la același preț</li>
+                  <li>Prezența se transmite de învățătoare până la ora 9:00; se facturează doar porțiile comandate, lunar, plata în 5 zile</li>
+                  <li>Anchetă alimentară de 3 ori pe an, discutată cu președinții comitetelor de părinți</li>
+                </ul>
+              </div>
+            </div>
+            <details class="menu">
+              <summary>Exemplu de meniu, cele 3 săptămâni</summary>
+              <div class="tablewrap">
+                <table>
+                  <thead><tr><th></th><th>Luni</th><th>Marți</th><th>Miercuri</th><th>Joi</th></tr></thead>
+                  <tbody>
+                    <tr><th>Săpt. 1</th><td>Supă de pui cu paste alfabet · Șnițel de pui cu cartofi natur și salată de varză · Papanași</td><td>Ciorbă de perișoare · Mămăligă cu brânză și smântână · Fruct</td><td>Ciorbă de fasole albă · Lasagna · Prăjitură cu mere</td><td>Supă de gulii · File de pește pane cu orez cu legume și salată · Fruct</td></tr>
+                    <tr><th>Săpt. 2</th><td>Supă de găluște · Paste bolognese · Fruct</td><td>Ciorbă rădăuțeană · Crispy de pui cu cartofi franțuzești și castraveți · Mălai în lapte</td><td>Ciorbă a la grec cu pui · Șalău la cuptor cu bulgur și salată · Gomboți cu prune</td><td>Ciorbă de fasole cu legume · Sarmale cu mămăligă și smântână · Fruct</td></tr>
+                    <tr><th>Săpt. 3</th><td>Supă de pui cu tăiței și legume · Paste carbonara · Fruct</td><td>Ciorbă de dovlecei · Musaca de cartofi cu carne de vită · Prăjitură cu morcovi</td><td>Ciorbă de văcuță cu legume · Cușcuș cu cașcaval pane și sos tzatziki · Salam de biscuiți</td><td>Supă cremă de roșii cu crutoane · Chiftele de somon cu orez cu legume și salată · Fruct</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
         </div>
 
         <div class="block">
