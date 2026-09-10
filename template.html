@@ -1,0 +1,538 @@
+<title>Masa copiilor CNER</title>
+<meta name="description" content="Selecția firmei de catering pentru elevii ciclului primar, Colegiul Național „Emil Racoviță” Cluj-Napoca: ședința părinților, ofertele primite, degustarea și data de start.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+  :root {
+    /* Paleta pornește de la e-racovita.ro: crem, slate închis, auriu */
+    --bg: #FBF4E3;
+    --surface: #FFFFFF;
+    --surface-2: #F3EAD3;
+    --ink: #1E293B;
+    --ink-2: #475569;
+    --ink-3: #6B7688;
+    --line: #E4D8BC;
+    --accent: #334155;
+    --accent-ink: #FFFFFF;
+    --accent-soft: #E3E8EF;
+    --warm: #A8811A;
+    --warm-soft: #F8E7AE;
+    --warm-ink: #4A3A0A;
+    --muted-row: #F7F1E3;
+    --shadow: 0 1px 2px rgba(30,41,59,.06), 0 8px 24px -12px rgba(30,41,59,.2);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0F172A; --surface: #1E293B; --surface-2: #283548;
+      --ink: #F3EBD8; --ink-2: #C8C0AC; --ink-3: #8E96A8; --line: #364358;
+      --accent: #AFC6E6; --accent-ink: #0F172A; --accent-soft: #273650;
+      --warm: #E8C973; --warm-soft: #3A3116; --warm-ink: #F8E088;
+      --muted-row: #182238;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0F172A; --surface: #1E293B; --surface-2: #283548;
+    --ink: #F3EBD8; --ink-2: #C8C0AC; --ink-3: #8E96A8; --line: #364358;
+    --accent: #AFC6E6; --accent-ink: #0F172A; --accent-soft: #273650;
+    --warm: #E8C973; --warm-soft: #3A3116; --warm-ink: #F8E088;
+    --muted-row: #182238;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Atkinson Hyperlegible", "Segoe UI", system-ui, Arial, sans-serif;
+    font-size: 17px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--warm); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
+
+  h1, h2, h3, .display { font-family: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif; text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(2rem, 5.5vw, 2.9rem); font-weight: 800; line-height: 1.05; letter-spacing: -.01em; }
+  h2 { font-size: clamp(1.45rem, 3.5vw, 1.8rem); font-weight: 700; line-height: 1.15; }
+  h3 { font-size: 1.12rem; font-weight: 700; line-height: 1.25; }
+  p { margin: 0; }
+  .eyebrow { font-size: .78rem; text-transform: uppercase; letter-spacing: .09em; color: var(--ink-3); font-weight: 700; }
+
+  /* Header */
+  header { padding: 44px 0 28px; border-bottom: 1px solid var(--line); display: grid; gap: 14px; }
+  header .lede { color: var(--ink-2); max-width: 60ch; font-size: 1.05rem; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--ink-2); font-size: .95rem; }
+  .facts span b { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  /* Status card */
+  .now {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 20px 22px; display: grid; gap: 10px; box-shadow: var(--shadow);
+    border-left: 6px solid var(--warm);
+  }
+  .now .eyebrow { color: var(--warm); }
+  .now p { max-width: 62ch; }
+  .now strong { font-weight: 700; }
+
+  /* Timeline */
+  .timeline { margin-top: 44px; display: grid; gap: 0; }
+  .stop { display: grid; grid-template-columns: 28px 1fr; gap: 0 18px; position: relative; padding-bottom: 44px; }
+  .stop:last-child { padding-bottom: 0; }
+  .stop::before { content: ""; position: absolute; left: 13px; top: 30px; bottom: 0; width: 2px; background: var(--line); }
+  .stop:last-child::before { display: none; }
+  .dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface); margin-top: 2px; display: grid; place-items: center; z-index: 1; }
+  .dot i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+  .stop.done .dot { border-color: var(--accent); }
+  .stop.done .dot i { background: var(--accent); }
+  .stop.next .dot { border-color: var(--warm); background: var(--warm-soft); }
+  .stop.next .dot i { background: var(--warm); }
+  .stop.next .when { color: var(--warm); }
+  .stop.done .when { color: var(--accent); }
+  .stop-body { display: grid; gap: 18px; min-width: 0; }
+  .when { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; color: var(--ink-3); display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+  .when time { font-variant-numeric: tabular-nums; }
+  .when .pill { text-transform: none; letter-spacing: 0; }
+  .pill { display: inline-block; font-size: .8rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; line-height: 1.3; white-space: nowrap; }
+  .pill.ok { background: var(--accent-soft); color: var(--accent); }
+  .pill.warm { background: var(--warm-soft); color: var(--warm-ink); }
+  .pill.off { background: var(--surface-2); color: var(--ink-3); }
+
+  .block { display: grid; gap: 10px; }
+  .block ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+  .block li::marker { color: var(--ink-3); }
+  .block .sub { color: var(--ink-2); }
+
+  /* Documents row */
+  .docs { display: grid; gap: 10px; }
+  .doc { display: flex; gap: 14px; align-items: center; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: inherit; }
+  .doc:hover { border-color: var(--accent); }
+  .doc .ic { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 800; font-family: "Bricolage Grotesque", sans-serif; font-size: .8rem; flex: none; }
+  .doc .t { font-weight: 700; }
+  .doc .d { color: var(--ink-2); font-size: .92rem; }
+  .doc .go { margin-left: auto; color: var(--accent); font-weight: 700; flex: none; }
+
+  /* Key points grid */
+  .keys { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+  .key { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 4px; align-content: start; }
+  .key .n { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.5rem; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--ink); }
+  .key .l { color: var(--ink-2); font-size: .92rem; }
+
+  /* Table */
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: .95rem; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); font-weight: 700; background: var(--surface-2); }
+  tr:last-child td { border-bottom: 0; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td .firm { font-weight: 700; }
+  tr.out td { color: var(--ink-3); background: var(--muted-row); }
+  tr.out td .firm { text-decoration: line-through; text-decoration-color: var(--ink-3); color: var(--ink-2); }
+  .tnote { color: var(--ink-3); font-size: .88rem; }
+
+  /* Summary (minutes) */
+  .minutes { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; display: grid; gap: 16px; }
+  .minutes h3 { font-size: 1rem; }
+  .minutes ul { margin: 0; padding-left: 1.15em; display: grid; gap: 5px; color: var(--ink-2); }
+  .minutes .grp { display: grid; gap: 8px; }
+
+  /* Proposal */
+  .idea { background: var(--warm-soft); color: var(--warm-ink); border-radius: 12px; padding: 16px 18px; display: grid; gap: 6px; }
+  .idea .eyebrow { color: inherit; opacity: .8; }
+
+  /* Steps tomorrow */
+  .steps { display: grid; gap: 10px; counter-reset: s; }
+  .step { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .step .k { width: 34px; height: 34px; border-radius: 50%; background: var(--warm-soft); color: var(--warm-ink); font-weight: 800; font-family: "Bricolage Grotesque", sans-serif; display: grid; place-items: center; font-variant-numeric: tabular-nums; }
+  .step .k::before { counter-increment: s; content: counter(s); }
+  .step .t { font-weight: 700; }
+  .step .d { color: var(--ink-2); font-size: .95rem; }
+
+  /* Full text */
+  details.full { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+  details.full > summary { list-style: none; cursor: pointer; padding: 16px 18px; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+  details.full > summary::-webkit-details-marker { display: none; }
+  details.full > summary::after { content: "Deschide"; margin-left: auto; color: var(--accent); font-size: .9rem; }
+  details.full[open] > summary::after { content: "Închide"; }
+  details.full > summary .chev { width: 22px; height: 22px; border-radius: 6px; background: var(--surface-2); display: grid; place-items: center; color: var(--ink-2); font-size: .8rem; transition: transform .2s; flex: none; }
+  details.full[open] > summary .chev { transform: rotate(90deg); }
+  .fulltext { padding: 4px 18px 22px; display: grid; gap: 22px; border-top: 1px solid var(--line); color: var(--ink); }
+  .fulltext .meta { color: var(--ink-2); font-size: .95rem; padding-top: 16px; }
+  .fulltext section { display: grid; gap: 8px; }
+  .fulltext h4 { margin: 0; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.02rem; font-weight: 700; display: flex; gap: 10px; align-items: baseline; }
+  .fulltext h4 .no { color: var(--ink-3); font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; }
+  .fulltext p, .fulltext li { color: var(--ink-2); font-size: .97rem; }
+  .fulltext ul, .fulltext ol { margin: 0; padding-left: 1.25em; display: grid; gap: 4px; }
+  .fulltext .hl { color: var(--ink); font-weight: 700; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+  /* Observații */
+  .obs { margin-top: 56px; background: var(--accent); color: var(--accent-ink); border-radius: 16px; padding: 26px 26px; display: grid; gap: 14px; }
+  .obs .eyebrow { color: var(--warm-soft); }
+  .obs h2 { color: inherit; }
+  .obs p { max-width: 60ch; opacity: .92; }
+  .obs .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 4px; }
+  .btn { display: inline-block; background: var(--warm-soft); color: var(--warm-ink); font-weight: 700; padding: 12px 20px; border-radius: 999px; text-decoration: none; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.02rem; }
+  .btn:hover { filter: brightness(1.04); }
+  .obs .hint { font-size: .9rem; opacity: .8; }
+  .obs ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; opacity: .92; }
+  .obs .embed { margin-top: 8px; border-radius: 12px; overflow: hidden; background: var(--surface); }
+  .obs .embed iframe { width: 100%; height: 900px; border: 0; display: block; }
+
+  footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--ink-3); font-size: .88rem; display: grid; gap: 6px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Colegiul Național „Emil Racoviță” Cluj-Napoca · Ciclul primar</p>
+    <h1>Masa copiilor: alegem firma de catering</h1>
+    <p class="lede">Aici găsiți, într-un singur loc, ce s-a discutat la ședința părinților, ofertele primite, ce se întâmplă la degustare și de când pornește masa.</p>
+    <div class="facts">
+      <span>Locul servirii: <b>Str. Horea nr. 52</b></span>
+      <span>Volum estimat: <b>~180 meniuri/zi</b></span>
+      <span>Actualizat: <b>10 septembrie 2026</b></span>
+    </div>
+  </header>
+
+  <div class="now">
+    <p class="eyebrow">Unde suntem acum</p>
+    <p><strong>Ședința de azi, joi 10 septembrie, ora 17:00, a avut loc.</strong> Au sosit 5 plicuri cu oferte. Mâine, <strong>vineri 11 septembrie, ora 12:00</strong>, 4 firme vin la școală cu porții de probă pentru degustare. Firma se alege mâine, ca masa să poată porni <strong>luni, 14 septembrie</strong>.</p>
+  </div>
+
+  <div class="timeline">
+
+    <!-- FAZA 1 -->
+    <article class="stop done" id="sedinta">
+      <div class="dot"><i></i></div>
+      <div class="stop-body">
+        <p class="when"><time datetime="2026-09-10T17:00">Joi, 10 septembrie 2026 · 17:00</time> <span class="pill ok">Încheiată</span></p>
+        <h2>Faza 1. Ședința cu părinții</h2>
+        <p class="sub">Caietul de sarcini a fost trimis firmelor în zilele trecute. Până la ședință au fost primite <strong>5 plicuri</strong> cu oferte. La ședință s-au analizat ofertele și s-a stabilit lista scurtă pentru degustare.</p>
+
+        <div class="block">
+          <h3>Documente</h3>
+          <div class="docs">
+            <a class="doc" href="__PDF_URL__" target="_blank" rel="noopener">
+              <span class="ic">PDF</span>
+              <span><span class="t">Caietul de sarcini (PDF, 6 pagini)</span><br><span class="d">Cerințele trimise firmelor de catering. Textul integral este și mai jos, pe această pagină.</span></span>
+              <span class="go">Deschide ↗</span>
+            </a>
+            <a class="doc" href="#caiet">
+              <span class="ic">TXT</span>
+              <span><span class="t">Caietul de sarcini, text integral</span><br><span class="d">Toate cele 25 de capitole, de citit direct pe telefon.</span></span>
+              <span class="go">Mai jos ↓</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="block">
+          <h3>Ce am cerut firmelor, pe scurt</h3>
+          <div class="keys">
+            <div class="key"><span class="n">180</span><span class="l">meniuri comandate pe zi, estimat. Se facturează doar cele comandate efectiv.</span></div>
+            <div class="key"><span class="n">2 persoane</span><span class="l">minimum, zilnic, în sala de mese: servire, strâns, curățenie.</span></div>
+            <div class="key"><span class="n">1 an școlar</span><span class="l">preț ferm per meniu, fără majorare unilaterală.</span></div>
+            <div class="key"><span class="n">Același preț</span><span class="l">pentru meniurile copiilor cu alergii și intoleranțe.</span></div>
+            <div class="key"><span class="n">15 + 9 + 1/clasă</span><span class="l">meniuri gratuite zilnic: învățătoare, personal, câte unul suplimentar pe clasă.</span></div>
+            <div class="key"><span class="n">Degustare</span><span class="l">cu un grup restrâns de copii; rezultatul contează la evaluare.</span></div>
+          </div>
+        </div>
+
+        <div class="block">
+          <h3>Ofertele primite</h3>
+          <div class="tablewrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Firma</th>
+                  <th class="num">Preț / meniu</th>
+                  <th>Observații</th>
+                  <th>Unde livrează deja</th>
+                  <th>Mâine</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="firm">Camigo</span></td>
+                  <td class="num">33 lei</td>
+                  <td>Au livrat la CNER anul trecut, opiniile sunt destul de ok.</td>
+                  <td>CNER, Bălcescu, grădinițele și școala Camigo</td>
+                  <td><span class="pill warm">Vine la degustare</span></td>
+                </tr>
+                <tr>
+                  <td><span class="firm">Vibes Bistro Bar</span></td>
+                  <td class="num">32 lei</td>
+                  <td>—</td>
+                  <td>Școala Ioan Bob, Liceul Barițiu</td>
+                  <td><span class="pill warm">Vine la degustare</span></td>
+                </tr>
+                <tr>
+                  <td><span class="firm">Rafinato Events</span></td>
+                  <td class="num">32 lei</td>
+                  <td>Fel 1 + fel 2 + desert. De lămurit dacă au personal de servire.</td>
+                  <td>CBC, Royal School, Terapia</td>
+                  <td><span class="pill warm">Vine la degustare</span></td>
+                </tr>
+                <tr>
+                  <td><span class="firm">Black Swan</span></td>
+                  <td class="num">34 lei</td>
+                  <td>Recomandare de la grădinița Străjerul Pitic.</td>
+                  <td>Spitalul Regina Maria, Codemy, Bridge Language</td>
+                  <td><span class="pill warm">Vine la degustare</span></td>
+                </tr>
+                <tr class="out">
+                  <td><span class="firm">La Casa</span></td>
+                  <td class="num">30 lei</td>
+                  <td>Doar felul 2 la 25 lei. Porții pentru copii mari.</td>
+                  <td>—</td>
+                  <td><span class="pill off">Nu merge mai departe</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="tnote">Prețul este per meniu, așa cum a fost ofertat în plic. Include tot ce cere caietul de sarcini: mâncare, transport, personal de servire, curățenie.</p>
+        </div>
+
+        <div class="block">
+          <h3>Rezumatul discuției</h3>
+          <div class="minutes">
+            <div class="grp">
+              <h3>Despre ce s-a vorbit</h3>
+              <ul>
+                <li>Ofertele de meniu, prețul pe porție și ce e inclus: transport, ambalare, logistică, servire.</li>
+                <li>Comparația firmelor după experiența din anii anteriori și capacitatea de a livra constant și la timp.</li>
+                <li>Riscul creșterilor de preț pe parcursul anului, pe fondul inflației, și o abordare echilibrată la negocieri.</li>
+                <li>Servire în sala de mese sau distribuție în clase, cu implicațiile logistice și de autorizare.</li>
+                <li>Ambalaje, caserole, servire la vrac și efectul lor asupra costului și calității.</li>
+                <li>Igienă, autorizări și responsabilitățile furnizorului la servire.</li>
+                <li>Importanța feedback-ului învățătorilor și al copiilor despre mâncare și cât de bine sunt primite meniurile.</li>
+              </ul>
+            </div>
+            <div class="grp">
+              <h3>Concluzii</h3>
+              <ul>
+                <li>Lista se restrânge la firmele considerate cele mai relevante pentru etapa finală.</li>
+                <li>Întâlnire față în față cu firmele selectate, pentru clarificări și negocieri finale.</li>
+                <li>Meniurile se testează efectiv înainte de decizia finală.</li>
+                <li>Calitatea serviciului și viteza de reacție la probleme contează la fel de mult ca prețul.</li>
+              </ul>
+            </div>
+            <div class="grp">
+              <h3>Ce s-a stabilit</h3>
+              <ul>
+                <li>Firmele selectate sunt invitate mâine la școală.</li>
+                <li>Fiecare aduce meniuri de probă pentru evaluare.</li>
+                <li>Se discută modelul de servire și eventualele investiții necesare.</li>
+                <li>Se strâng opiniile învățătorilor înainte de decizia finală.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="idea">
+          <p class="eyebrow">Propunere de îmbunătățire</p>
+          <p><strong>Firma de catering să aducă mâncarea la vrac</strong>, iar porțiile să fie repartizate aici, în sala de mese. Poate fi și o soluție hibridă (o parte porționată, o parte la vrac).</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- FAZA 2 -->
+    <article class="stop next" id="degustare">
+      <div class="dot"><i></i></div>
+      <div class="stop-body">
+        <p class="when"><time datetime="2026-09-11T12:00">Vineri, 11 septembrie 2026 · 12:00</time> <span class="pill warm">Mâine</span></p>
+        <h2>Faza 2. Degustarea și alegerea firmei</h2>
+        <p class="sub">Din cele 5 oferte, <strong>4 firme</strong> vin la școală cu câte <strong>5–6 porții</strong> de probă: Camigo, Vibes Bistro Bar, Rafinato Events și Black Swan. Mâine se alege firma cu care pornim.</p>
+
+        <div class="steps">
+          <div class="step"><span class="k"></span><span><span class="t">Fiecare firmă aduce porțiile așa cum le va livra copiilor</span><br><span class="d">Aceeași compoziție, gramaj și calitate ca în ofertă. Nu se acceptă porții „de vitrină”, mai bune decât cele din contract.</span></span></div>
+          <div class="step"><span class="k"></span><span><span class="t">Se gustă și se compară</span><br><span class="d">Gust, aspect, textură, temperatură, cât de atractiv e pentru copii, cât de ușor se servește.</span></span></div>
+          <div class="step"><span class="k"></span><span><span class="t">Clarificări față în față</span><br><span class="d">Personal de servire, model de servire (porționat, vrac sau hibrid), logistică, alergii, cine răspunde la sesizări.</span></span></div>
+          <div class="step"><span class="k"></span><span><span class="t">Decizia</span><br><span class="d">Nu se alege doar după preț. Contează calitatea meniurilor și a ingredientelor, gramajele, varietatea, degustarea, experiența, logistica, servirea, curățenia, alergiile și colaborarea cu personalul medical și cu părinții.</span></span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- START -->
+    <article class="stop" id="start">
+      <div class="dot"><i></i></div>
+      <div class="stop-body">
+        <p class="when"><time datetime="2026-09-14">Luni, 14 septembrie 2026</time></p>
+        <h2>Pornește masa</h2>
+        <p class="sub">Dacă mâine se alege firma, contractele se încheie cu reprezentanții părinților fiecărei clase, la același preț și în aceleași condiții pentru toate clasele, iar servirea începe de luni.</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- OBSERVAȚII -->
+  <section class="obs" id="observatii">
+    <p class="eyebrow">Observațiile părinților</p>
+    <h2>Aveți o observație, o întrebare sau o propunere?</h2>
+    <p>Scrieți-o în formular. Toate răspunsurile ajung într-un tabel al comisiei de părinți și sunt citite înaintea deciziei de mâine și după ce pornește masa.</p>
+    <ul>
+      <li>ce contează pentru copilul dumneavoastră la masă (alergii, preferințe, cantități);</li>
+      <li>păreri despre firmele de anul trecut sau despre cele de pe listă;</li>
+      <li>propuneri pentru servire: porționat, la vrac sau hibrid.</li>
+    </ul>
+    <div class="row">
+      <a class="btn" id="formBtn" href="__FORM_URL__" target="_blank" rel="noopener">Trimite o observație ↗</a>
+      <span class="hint" id="formHint">Se deschide într-o filă nouă. Durează un minut.</span>
+    </div>
+    <div class="embed" id="formEmbed" hidden></div>
+  </section>
+
+  <!-- CAIET DE SARCINI -->
+  <section id="caiet" style="margin-top:56px; display:grid; gap:16px;">
+    <p class="eyebrow">Document</p>
+    <h2>Caietul de sarcini, text integral</h2>
+    <p class="sub" style="color:var(--ink-2)">Servicii de catering pentru elevii Colegiului Național „Emil Racoviță” Cluj-Napoca, ciclul primar. Locul prestării: Str. Horea nr. 52. Obiectul: selecția unui prestator pentru furnizarea zilnică de servicii complete de catering, servirea mesei, curățarea și igienizarea sălii de mese și evacuarea resturilor alimentare. <a href="__PDF_URL__" target="_blank" rel="noopener">Versiunea PDF ↗</a></p>
+
+    <details class="full">
+      <summary><span class="chev">›</span> Cele 25 de capitole</summary>
+      <div class="fulltext">
+        <p class="meta">Textul de mai jos reproduce caietul de sarcini trimis firmelor. Pentru orice neclaritate, documentul PDF este cel de referință.</p>
+
+        <section><h4><span class="no">1</span>Obiectul contractului</h4>
+          <p>Furnizarea zilnică de servicii complete de catering pentru elevii ciclului primar, în locația din Str. Horea nr. 52, Cluj-Napoca. Serviciile includ:</p>
+          <ul><li>prepararea hranei;</li><li>porționarea și ambalarea;</li><li>transportul și livrarea la sediul școlii;</li><li>distribuirea și servirea meniurilor;</li><li>asigurarea personalului necesar servirii mesei;</li><li>strângerea după servire;</li><li>curățarea și igienizarea zilnică a sălii de mese;</li><li>colectarea și evacuarea zilnică a resturilor alimentare și a deșeurilor rezultate din activitatea de catering.</li></ul>
+          <p>Volumul estimat este de aproximativ <span class="hl">180 de meniuri comandate/zi</span>, raportat la necesarul din anul școlar 2025-2026. Numărul poate varia zilnic în funcție de prezența elevilor, program, activități, excursii, vacanțe sau alte situații. Prestatorul facturează numărul efectiv de meniuri comandate.</p>
+        </section>
+
+        <section><h4><span class="no">2</span>Condiții obligatorii de eligibilitate</h4>
+          <p>Participarea este condiționată de îndeplinirea tuturor cerințelor obligatorii. Ofertantul trebuie să dețină toate autorizațiile, avizele, înregistrările și documentele prevăzute de legislație pentru preparare, manipulare, transport și servire a alimentelor. Lipsa documentelor, documente expirate sau imposibilitatea demonstrării unei cerințe pot duce la declararea ofertei ca neconformă.</p>
+        </section>
+
+        <section><h4><span class="no">3</span>Documente privind societatea și unitatea de preparare</h4>
+          <ul><li>certificatul de înregistrare al societății;</li><li>certificat constatator ONRC actualizat;</li><li>documentele sanitar-veterinare și pentru siguranța alimentelor;</li><li>documentele aferente punctului de lucru unde se prepară efectiv hrana;</li><li>datele complete de identificare ale societății;</li><li>persoana desemnată pentru relația cu reprezentanții părinților și cu școala.</li></ul>
+          <p>Documentele trebuie să permită identificarea clară a societății, a punctului de lucru și a adresei unde se prepară hrana. Prepararea în altă locație decât cea declarată nu este permisă fără documente și fără informarea prealabilă a reprezentanților părinților.</p>
+        </section>
+
+        <section><h4><span class="no">4</span>Transportul alimentelor</h4>
+          <p>Transportul se face exclusiv cu mijloace care îndeplinesc cerințele sanitar-veterinare și de siguranță alimentară. Pentru fiecare autovehicul, prestatorul deține și prezintă: documentele de înregistrare/autorizare sanitar-veterinară, documentele de identificare ale autovehiculului, procedurile de curățare și igienizare și orice alte documente cerute de lege.</p>
+          <p>Mijlocul de transport trebuie să fie curat, să permită curățarea și dezinfectarea, să protejeze alimentele de contaminare, să permită separarea produselor când există risc de contaminare încrucișată și să mențină temperatura corespunzătoare. Recipientele trebuie să fie adecvate contactului cu alimentele, curate și igienizate. Prestatorul asigură condițiile de temperatură și siguranță de la preparare până la servirea copiilor.</p>
+        </section>
+
+        <section><h4><span class="no">5</span>Personalul pentru servirea mesei</h4>
+          <p>Prestatorul asigură zilnic <span class="hl">minimum 2 persoane în sala de mese</span>, pe toată perioada pregătirii, servirii și strângerii mesei. Atribuții:</p>
+          <ul><li>recepționarea și organizarea meniurilor;</li><li>pregătirea zonei de servire;</li><li>distribuirea și servirea meniurilor către copii;</li><li>organizarea fluxului de servire;</li><li>sprijinirea copiilor atunci când este necesar;</li><li>strângerea după fiecare serie de elevi;</li><li>curățarea meselor;</li><li>menținerea permanentă a ordinii și igienei în zona de servire.</li></ul>
+          <p>Absența unei persoane nu poate duce la prestarea serviciului cu mai puțin de două persoane. Prestatorul asigură personal de înlocuire.</p>
+        </section>
+
+        <section><h4><span class="no">6</span>Cerințe privind personalul care manipulează și servește alimente</h4>
+          <p>Personalul trebuie să: dețină fișe de aptitudine valabile de la medicina muncii; fie instruit în igienă și siguranță alimentară; cunoască și respecte regulile de prevenire a contaminării; fie instruit privind igiena mâinilor și manipularea alimentelor; poarte echipament de lucru adecvat și curat. La solicitarea părinților, prestatorul prezintă dovada acestor condiții, cu respectarea protecției datelor. Nu manipulează alimente persoane cu simptome sau afecțiuni care pot reprezenta un risc.</p>
+        </section>
+
+        <section><h4><span class="no">7</span>Curățarea și igienizarea sălii de mese</h4>
+          <p>Zilnic, cu personal propriu și pe cheltuiala proprie, prestatorul curăță și igienizează sala de mese, furnizând soluțiile profesionale, consumabilele și ustensilele. Curățenia include cel puțin: mesele, suprafețele de servire, pardoseala, zonele folosite de personalul prestatorului și colectarea deșeurilor din catering. Sala rămâne la sfârșitul fiecărei zile curată, igienizată, ordonată și fără resturi alimentare.</p>
+        </section>
+
+        <section><h4><span class="no">8</span>Resturile alimentare</h4>
+          <p>Prestatorul colectează și evacuează zilnic resturile alimentare. Acestea nu rămân în incinta școlii după finalizarea serviciului zilnic. Colectarea, transportul și gestionarea se fac conform legislației.</p>
+        </section>
+
+        <section><h4><span class="no">9</span>Meniuri furnizate fără cost suplimentar</h4>
+          <p>Pe lângă meniurile comandate și facturate, prestatorul furnizează zilnic, fără facturare:</p>
+          <ul><li><span class="hl">15 meniuri</span> pentru cadrele didactice/învățătoare (meniu adult);</li><li><span class="hl">1 meniu suplimentar</span> pentru fiecare clasă;</li><li><span class="hl">9 meniuri</span> pentru personalul școlii (meniu adult).</li></ul>
+          <p>Aceste meniuri au aceeași compoziție, calitate, cantitate și gramaj ca ale elevilor. Costul lor este inclus în prețul ofertat.</p>
+        </section>
+
+        <section><h4><span class="no">10</span>Cerințe privind meniurile</h4>
+          <p>Meniurile respectă legislația alimentației copiilor și sunt adaptate vârstei elevilor din ciclul primar. Prestatorul prezintă: meniul complet, gramajul fiecărui preparat, ingredientele principale, lista alergenilor, informațiile nutriționale și un exemplu de meniu pentru minimum două săptămâni. Meniurile sunt echilibrate, variate și pregătite din ingrediente de calitate. Pe durata contractului nu este permisă reducerea unilaterală a gramajelor, a calității ingredientelor sau a standardelor asumate.</p>
+        </section>
+
+        <section><h4><span class="no">11</span>Meniuri pentru copiii cu alergii și intoleranțe alimentare</h4>
+          <p>În școală există copii cu alergii și/sau intoleranțe. Prestatorul asigură meniuri separate, individualizate, după restricțiile comunicate și recomandările medicale, elaborate cu implicarea specialistului în nutriție și, când e nevoie, cu personalul medical al școlii. Previne contaminarea încrucișată în toate etapele. Meniurile speciale sunt clar identificate.</p>
+          <p><span class="hl">Meniurile speciale se furnizează la același preț ca meniul standard</span>, fără taxe suplimentare pentru ingrediente, preparare separată, ambalare sau alte costuri. Dacă o combinație de restricții nu poate fi gestionată în siguranță, prestatorul informează imediat, în scris, părintele și personalul medical.</p>
+        </section>
+
+        <section><h4><span class="no">12</span>Medic / specialist în nutriție</h4>
+          <p>Pe toată durata contractului, prestatorul are un medic/specialist în nutriție angajat sau cu contract valabil de colaborare, și prezintă dovada. Specialistul participă la elaborarea și verificarea meniurilor, evaluarea echilibrului nutrițional, adaptarea la vârsta copiilor, analiza alergiilor și recomandări de îmbunătățire.</p>
+        </section>
+
+        <section><h4><span class="no">13</span>Colaborarea cu personalul medical al școlii</h4>
+          <p>Prestatorul colaborează permanent cu personalul medical al școlii și răspunde întrebărilor privind meniuri, ingrediente, proveniență, gramaje, aport nutrițional, alergeni, preparare, transport, temperatură, păstrare, servire, igienă și siguranță. Desemnează o persoană de contact. Solicitările uzuale primesc răspuns în <span class="hl">maximum 2 zile lucrătoare</span>; situațiile care pot afecta sănătatea copiilor se tratează de îndată. Orice refuz de a implementa o recomandare medicală se justifică în scris.</p>
+        </section>
+
+        <section><h4><span class="no">14</span>Stabilirea și aprobarea meniului</h4>
+          <p>Prestatorul transmite în avans propunerea de meniu pentru săptămâna următoare. Meniul poate fi analizat împreună cu reprezentanții părinților, personalul medical și conducerea școlii. Părinții și personalul medical pot propune înlocuiri de preparate, mai multă varietate, alte frecvențe sau combinații, și pot semnala preparatele cu feedback negativ repetat. Prestatorul nu modifică nejustificat și unilateral meniurile stabilite.</p>
+        </section>
+
+        <section><h4><span class="no">15</span>Contractarea</h4>
+          <p>Contractele se încheie cu reprezentanții părinților fiecărei clase. Prestatorul aplică tuturor claselor <span class="hl">același preț, aceleași condiții, aceleași meniuri, gramaje și standarde</span>. Nu se acceptă condiții diferite de la o clasă la alta.</p>
+        </section>
+
+        <section><h4><span class="no">16</span>Controlul calității de către părinți</h4>
+          <p>Reprezentanții părinților pot urmări respectarea obligațiilor: calitate, aspect, gust, prospețime, gramaje, ingrediente, respectarea meniului, temperatură, ora livrării, transport, servire, prezența personalului, curățenie, igienizare și evacuarea resturilor. Se pot face verificări aleatorii ale porțiilor, inclusiv prin cântărire, fără perturbarea activității școlare.</p>
+        </section>
+
+        <section><h4><span class="no">17</span>Feedback și remediere</h4>
+          <p>Prestatorul asigură un mecanism simplu de comunicare cu părinții și cu personalul medical. Sesizările pot privi calitatea, cantitatea, gustul, temperatura, întârzierile, servirea, curățenia, comportamentul personalului sau nerespectarea meniului. Prestatorul analizează sesizările și comunică măsurile. Neconformitățile care pot afecta sănătatea sau siguranța copiilor se remediază imediat.</p>
+        </section>
+
+        <section><h4><span class="no">18</span>Prețul și valabilitatea ofertei</h4>
+          <p>Oferta indică prețul final per meniu, care include toate costurile: materii prime, preparare, porționare, ambalare, transport, personalul de servire (minimum 2 persoane), curățenie și materiale, evacuarea resturilor, meniurile gratuite, meniurile speciale pentru alergii, serviciile specialistului în nutriție și toate celelalte obligații din caiet.</p>
+          <p><span class="hl">Prețul este ferm și valabil minimum un an școlar complet</span>, fără modificare unilaterală. Fluctuațiile obișnuite ale materiilor prime, transportului, forței de muncă sau utilităților nu justifică, prin ele însele, o majorare. O majorare poate fi cerută doar în situații excepționale, obiective, imprevizibile la data ofertei, în scris, motivată și cu documente justificative (elementele de cost modificate, impactul procentual, noul preț și modul de calcul). Se aplică numai după aprobare prealabilă, proporțional și strict limitat la impactul real demonstrat.</p>
+        </section>
+
+        <section><h4><span class="no">19</span>Depunerea ofertei financiare în plic sigilat</h4>
+          <p>Oferta financiară se depune separat de documentația tehnică, în plic sigilat marcat „OFERTĂ FINANCIARĂ – CONFIDENȚIAL”, conținând exclusiv prețul final per meniu și, dacă e cazul, formularul financiar. Documentele de eligibilitate și ofertele tehnice se analizează înaintea deschiderii plicurilor financiare, care se deschid numai în cadrul procedurii, de persoanele desemnate. Prețurile se tratează ca informații confidențiale până la deschiderea oficială.</p>
+        </section>
+
+        <section><h4><span class="no">20</span>Degustarea meniurilor</h4>
+          <p>Se organizează o degustare a meniurilor propuse de ofertanții eligibili, în aceleași condiții pentru toți. Degustarea este realizată de un <span class="hl">grup restrâns de copii din ciclul primar</span>, desemnat de organizatori, cu acordurile necesare și respectând restricțiile alimentare cunoscute.</p>
+          <p>Ofertanții prezintă meniuri în aceeași formă, compoziție, calitate, gramaj și standard în care intenționează să le furnizeze. Nu se acceptă preparate cu ingrediente, gramaje sau standarde superioare ofertei. Se urmăresc gustul, aspectul, textura, temperatura, atractivitatea pentru copii, ușurința servirii și aprecierea generală. Rezultatul poate fi luat în considerare la evaluarea calitativă.</p>
+        </section>
+
+        <section><h4><span class="no">21</span>Documente obligatorii în dosarul ofertei</h4>
+          <ol>
+            <li>Certificat de înregistrare al societății;</li><li>Certificat constatator ONRC actualizat;</li><li>Documentele sanitar-veterinare și pentru siguranța alimentelor aferente unității de preparare;</li><li>Documentele aferente punctului de lucru;</li><li>Documentele autovehiculelor folosite la transport;</li><li>Declarație privind respectarea condițiilor de siguranță alimentară;</li><li>Declarație privind existența personalului necesar;</li><li>Declarație privind fișele de aptitudine valabile;</li><li>Declarație privind instruirea personalului în igienă;</li><li>Procedura de curățare și igienizare a autovehiculelor;</li><li>Procedura de curățare și igienizare a recipientelor de transport;</li><li>Dovada medicului/specialistului în nutriție;</li><li>Exemplu de meniu pentru minimum două săptămâni;</li><li>Gramajele propuse pentru fiecare preparat;</li><li>Principalele ingrediente utilizate;</li><li>Lista alergenilor;</li><li>Modul de gestionare a meniurilor pentru copiii cu alergii și intoleranțe;</li><li>Oferta financiară, separat, în plic sigilat;</li><li>Prezentarea unității de preparare;</li><li>Prezentarea logisticii de transport;</li><li>Experiența relevantă în catering;</li><li>Minimum două referințe relevante, dacă există.</li>
+          </ol>
+        </section>
+
+        <section><h4><span class="no">22</span>Verificarea documentelor</h4>
+          <p>Reprezentanții părinților pot cere clarificări, pot verifica valabilitatea documentelor, pot cere originale sau copii conforme și informații suplimentare. Informațiile false sau documentele nevalabile pot duce la eliminarea ofertantului sau la încetarea contractului.</p>
+        </section>
+
+        <section><h4><span class="no">23</span>Neconformități grave</h4>
+          <ul><li>mijloc de transport neconform;</li><li>lipsa documentelor obligatorii privind transportul;</li><li>prepararea hranei în altă unitate decât cea declarată;</li><li>nerespectarea gravă a normelor de igienă;</li><li>personal care nu îndeplinește condițiile legale;</li><li>nerespectarea condițiilor de temperatură;</li><li>produse alterate sau suspecte;</li><li>neevacuarea resturilor alimentare;</li><li>nerespectarea cerințelor privind alergiile și contaminarea încrucișată;</li><li>orice încălcare care poate afecta sănătatea sau siguranța copiilor.</li></ul>
+          <p>În astfel de situații se poate cere suspendarea imediată a serviciului până la remediere și aplicarea măsurilor contractuale.</p>
+        </section>
+
+        <section><h4><span class="no">24</span>Evaluarea ofertelor</h4>
+          <p><span class="hl">Selecția nu se face exclusiv pe baza celui mai mic preț.</span> Se evaluează cel puțin: prețul, calitatea meniurilor și a ingredientelor, gramajele, varietatea, rezultatul degustării, experiența, organizarea logistică, transportul, servirea, curățenia, gestionarea alergiilor și intoleranțelor, colaborarea cu personalul medical și cu părinții, capacitatea de răspuns la sesizări. Toate condițiile obligatorii trebuie îndeplinite înainte de punctare.</p>
+        </section>
+
+        <section><h4><span class="no">25</span>Principiul general al procedurii</h4>
+          <p>Scopul este un serviciu de catering sigur, sănătos, echilibrat, transparent și constant calitativ, la un preț justificat și competitiv. Sănătatea, siguranța alimentară și interesul copiilor sunt criteriile principale ale selecției și ale derulării serviciului.</p>
+        </section>
+      </div>
+    </details>
+  </section>
+
+  <footer>
+    <p>Pagină informativă a reprezentanților părinților, ciclul primar, Colegiul Național „Emil Racoviță” Cluj-Napoca.</p>
+    <p>Rezumatul discuției provine din transcrierea ședinței din 10 septembrie 2026. Datele despre firme sunt cele din tabelul de selecție al comisiei.</p>
+  </footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('formBtn');
+    var hint = document.getElementById('formHint');
+    var embed = document.getElementById('formEmbed');
+    var url = btn.getAttribute('href');
+    var embedUrl = '__FORM_EMBED__';
+    if (!url || url.indexOf('__') === 0) {
+      // Formularul nu e încă legat: ascundem butonul și explicăm.
+      btn.hidden = true;
+      hint.textContent = 'Formularul se activează în curând. Până atunci, transmiteți observațiile reprezentantului clasei.';
+      return;
+    }
+    if (embedUrl && embedUrl.indexOf('__') !== 0) {
+      var f = document.createElement('iframe');
+      f.src = embedUrl; f.title = 'Formular de observații'; f.loading = 'lazy';
+      embed.appendChild(f); embed.hidden = false;
+    }
+  })();
+</script>
