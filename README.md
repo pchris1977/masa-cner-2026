@@ -14,15 +14,15 @@ selecția firmei de catering (ședința din 10 septembrie 2026, ofertele primite
 
 ## Publicare pe GitHub Pages (o singură dată, ~5 minute)
 
-1. Creați un repository nou pe github.com (de exemplu `masa-cner`), public, gol (fără README).
+1. Creați un repository nou pe github.com (de exemplu `masa-cner-2026`), public, gol (fără README).
 2. În acest folder, rulați:
 
 ```bash
-git add . && git commit -m "Pagina parintilor: selectie catering CNER" && git branch -M main && git remote add origin https://github.com/UTILIZATOR/masa-cner.git && git push -u origin main
+git add . && git commit -m "Pagina parintilor: selectie catering CNER" && git branch -M main && git remote add origin https://github.com/UTILIZATOR/masa-cner-2026.git && git push -u origin main
 ```
 
 3. Pe GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: main / (root) → Save**.
-4. După 1–2 minute pagina este publică la `https://UTILIZATOR.github.io/masa-cner/`.
+4. După 1–2 minute pagina este publică la `https://UTILIZATOR.github.io/masa-cner-2026/`.
 
 Orice modificare ulterioară: editați `index.html` (sau `template.html` și regenerați), apoi `git add . && git commit -m "..." && git push`.
 
