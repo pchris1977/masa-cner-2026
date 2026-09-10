@@ -44,6 +44,7 @@
   }
 
   * { box-sizing: border-box; }
+  html, body { overflow-x: clip; }
   body {
     margin: 0; background: var(--bg); color: var(--ink);
     font-family: "Atkinson Hyperlegible", "Segoe UI", system-ui, Arial, sans-serif;
@@ -101,7 +102,8 @@
   .pill.warm { background: var(--warm-soft); color: var(--warm-ink); }
   .pill.off { background: var(--surface-2); color: var(--ink-3); }
 
-  .block { display: grid; gap: 10px; }
+  .block { display: grid; gap: 10px; min-width: 0; }
+  .block > *, .offer > *, .stop-body > * { min-width: 0; max-width: 100%; }
   .block ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
   .block li::marker { color: var(--ink-3); }
   .block .sub { color: var(--ink-2); }
