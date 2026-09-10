@@ -165,6 +165,8 @@
   /* Proposal */
   .idea { background: var(--warm-soft); color: var(--warm-ink); border-radius: 12px; padding: 16px 18px; display: grid; gap: 6px; }
   .idea .eyebrow { color: inherit; opacity: .8; }
+  .idea.thanks { background: var(--accent-soft); color: var(--ink); border-left: 4px solid var(--accent); }
+  .idea.thanks .eyebrow { color: var(--accent); opacity: 1; }
 
   /* Steps tomorrow */
   .steps { display: grid; gap: 10px; counter-reset: s; }
@@ -235,6 +237,11 @@
         <h2>Faza 1. Ședința cu părinții</h2>
         <p class="sub">Caietul de sarcini a fost trimis firmelor în zilele trecute. Până la ședință au fost primite <strong>5 plicuri</strong> cu oferte. La ședință s-au analizat ofertele și s-a stabilit lista scurtă pentru degustare.</p>
 
+        <div class="idea thanks">
+          <p class="eyebrow">Mulțumim</p>
+          <p>Un cuvânt de mulțumire părinților prezenți astăzi, care și-au rupt din timpul lor, seara, pentru binele copiilor din școala noastră. Deciziile bune se iau împreună.</p>
+        </div>
+
         <div class="block">
           <h3>Documente</h3>
           <div class="docs">
@@ -257,6 +264,16 @@
               <span class="ic">PDF</span>
               <span><span class="t">Broșura Black Swan Events (PDF, 5 pagini)</span><br><span class="d">Meniul propus pe 4 săptămâni, gramaje, principii de gătire și sistemul de livrare în thermoboxuri.</span></span>
               <span class="go">__CAMIGO_GO__</span>
+            </a>
+            <a class="doc" href="__VIBES_JPG__" target="_blank" rel="noopener">
+              <span class="ic">JPG</span>
+              <span><span class="t">Scrisoarea de ofertă Vibes Bistro Bar (imagine)</span><br><span class="d">Prețul, compoziția meniului, servirea și curățenia asigurate de personalul lor, porții suplimentare incluse.</span></span>
+              <span class="go">__CAMIGO_GO__</span>
+            </a>
+            <a class="doc" href="__VIBES_XLSX__" target="_blank" rel="noopener">
+              <span class="ic">XLS</span>
+              <span><span class="t">Meniul Vibes Bistro Bar pe 3 săptămâni (Excel)</span><br><span class="d">Fiecare preparat cu ingrediente, gramaje, calorii și alergeni. Se descarcă.</span></span>
+              <span class="go">Descarcă ↓</span>
             </a>
           </div>
         </div>
@@ -297,7 +314,7 @@
                 <tr>
                   <td><span class="firm">Vibes Bistro Bar</span></td>
                   <td class="num">32 lei</td>
-                  <td>Ofertă primită doar în plic, pe hârtie. Documentul digital urmează.</td>
+                  <td>Supă/ciorbă + fel 2 (cu salată unde e cazul) + desert, luni–joi. Servirea și curățenia cu personal propriu; porții suplimentare incluse. <a href="#oferta-vibes">Detalii</a></td>
                   <td>Școala Ioan Bob, Liceul Barițiu</td>
                   <td><span class="pill warm">Vine la degustare</span></td>
                 </tr>
@@ -330,7 +347,7 @@
 
         <div class="block" id="oferta-camigo">
           <h3>Ofertele în detaliu</h3>
-          <p class="sub">Publicăm aici ofertele scrise, pe măsură ce le primim în format electronic. Avem până acum ofertele Camigo și Black Swan. Vibes Bistro Bar și Rafinato Events au trimis oferta doar în plic, pe hârtie; le vom publica aici când primim și documentul în format digital.</p>
+          <p class="sub">Publicăm aici ofertele scrise, pe măsură ce le primim în format electronic. Avem până acum ofertele Camigo, Black Swan și Vibes Bistro Bar. Rafinato Events a trimis oferta doar în plic, pe hârtie; o vom publica aici când primim și documentul în format digital.</p>
           <div class="offer">
             <div class="offer-head">
               <div>
@@ -438,6 +455,58 @@
                     <tr><th>Săpt. 2</th><td>Ciorbă rădăuțeană · Friptură de porc cu cartofi țărănești · Portocală</td><td>Ciorbă de văcuță · Paste bolognese · Chec</td><td>Supă de roșii cu orez · Șnițel de pui la cuptor și cous-cous · Pară</td><td>Ciorbă de perișoare · Caș pane copt în cuptor cu cartofi piure · Banana bread</td><td>Supă de găluște · File de pește pane la cuptor cu bulgur și legume · Măr</td></tr>
                     <tr><th>Săpt. 3</th><td>Ciorbă de legume · Tocăniță de pui cu paste · Piersică</td><td>Supă cremă de cartofi · Mazăre cu carne de pui · Prăjitură cu mere</td><td>Ciorbă de varză · Piept de curcan cu sos de legume și piure de cartofi · Banană</td><td>Supă alfabet · Chiftele la cuptor cu spanac · Salam de biscuiți</td><td>Ciorbă de fasole verde · Pui crocant la cuptor cu cartofi copți · Portocală</td></tr>
                     <tr><th>Săpt. 4</th><td>Ciorbă de cartofi · Ghiveci de orez cu pui · Pară</td><td>Ciorbă de pui a la grec · Mămăligă cu brânză · Banana bread</td><td>Ciorbă de legume · Paste cu sos alb și piept de pui · Măr</td><td>Ciorbă ardelenească de porc · Ostropel de curcan cu mămăligă · Carrot cake</td><td>Supă de pui cu tăiței · Șnițel de porc parizian la cuptor cu orez și legume · Banană</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+
+          <div class="offer" id="oferta-vibes">
+            <div class="offer-head">
+              <div>
+                <p class="eyebrow">Vibes Bistro Bar</p>
+                <h3>32 lei / meniu livrat</h3>
+              </div>
+              <span style="display:flex;gap:14px;flex-wrap:wrap"><a class="offer-link" href="__VIBES_JPG__" target="_blank" rel="noopener">Scrisoarea de ofertă ↗</a><a class="offer-link" href="__VIBES_XLSX__">Meniul detaliat (Excel) ↓</a></span>
+            </div>
+            <div class="offer-grid">
+              <div class="offer-col">
+                <p class="offer-t">Pe farfurie, zilnic</p>
+                <ul>
+                  <li><b>200 g</b> supă sau ciorbă, cu pâine unde e cazul</li>
+                  <li><b>200 g</b> fel principal, plus <b>40 g</b> salată sau murături la preparatele care o cer; pâine unde e cazul</li>
+                  <li>Desert: fruct de sezon <b>80–100 g</b> sau prăjitură <b>100 g</b></li>
+                  <li>Porțiile suplimentare sunt incluse: fiecare copil care cere supliment primește</li>
+                </ul>
+              </div>
+              <div class="offer-col">
+                <p class="offer-t">Cum lucrează</p>
+                <ul>
+                  <li>Meniu <b>luni–joi</b>, 3 variante pentru <b>3 săptămâni</b></li>
+                  <li>Pentru fiecare preparat: ingrediente cu gramaje, calorii și alergeni, în Excelul atașat</li>
+                  <li>Servirea mesei, debarasarea și curățenia sălii de mese, integral cu personal propriu, cu examinări medicale periodice</li>
+                  <li>Prezența copiilor se comunică de învățătoare zilnic, până la ora 9:30</li>
+                </ul>
+              </div>
+              <div class="offer-col">
+                <p class="offer-t">Experiență și de clarificat</p>
+                <ul>
+                  <li>Livrează deja la Școala Ioan Bob și Liceul Barițiu</li>
+                  <li>Oferta nu menționează: medic nutriționist, meniuri separate pentru alergii, meniurile gratuite pentru învățătoare și personal, transportul autorizat, evacuarea resturilor. De clarificat mâine.</li>
+                  <li>Câteva preparate sunt prăjite (mozzarella sticks cu cartofi prăjiți, 584 kcal); de discutat față de cerința de meniu echilibrat</li>
+                </ul>
+              </div>
+            </div>
+            <details class="menu">
+              <summary>Meniul propus, cele 3 săptămâni</summary>
+              <p class="tnote" style="margin-top:8px">Transcris din Excelul trimis; denumirile sunt cele din document. Alergenii principali: țelină în aproape toate ciorbele, gluten, ou, lactoză la paste, șnițele și deserturi.</p>
+              <div class="tablewrap">
+                <table>
+                  <thead><tr><th></th><th>Luni</th><th>Marți</th><th>Miercuri</th><th>Joi</th></tr></thead>
+                  <tbody>
+                    <tr><th>Săpt. 1</th><td>Supă de pui cu tăiței · Mozzarella sticks cu cartofi prăjiți și salată de varză · Fruct de sezon</td><td>Ciorbă de legume · Gulaș de porc cu cartofi și castraveți murați · Prăjitură cu mere</td><td>Ciorbă a la grec de pui · Pilaf cu carne de porc · Fruct de sezon</td><td>Supă cremă de cașcaval · Mazăre cu pui și murături asortate · Desert napolitană</td></tr>
+                    <tr><th>Săpt. 2</th><td>Ciorbă de văcuță · Paste carbonara · Fruct de sezon</td><td>Ciorbă albă de cartofi · „Gulaș de porc” (după ingrediente: cașcaval pane cu cuș-cuș și iaurt) · Chec de casă</td><td>Ciorbă rădăuțeană · Paste pomodoro · Fruct de sezon</td><td>Supă cremă de conopidă · Șnițel de pui cu piure și salată de varză · Desert prăjitură</td></tr>
+                    <tr><th>Săpt. 3</th><td>Ciorbă a la grec de porc · Broccoli cu curcan, sos alb și salată de varză · Tiramisu</td><td>Ciorbă de fasole verde · Cotlet cu cartofi natur și salată de castraveți murați · Fruct de sezon</td><td>Ciorbă albă de perișoare · Stroganoff de pui · Fruct de sezon</td><td>Ciorbă de fasole cu ciolan · Piept de pui sweet chilli · Cheesecake rece</td></tr>
                   </tbody>
                 </table>
               </div>
