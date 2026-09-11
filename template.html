@@ -66,6 +66,9 @@
   /* Header */
   header { padding: 44px 0 28px; border-bottom: 1px solid var(--line); display: grid; gap: 14px; }
   header .lede { color: var(--ink-2); max-width: 60ch; font-size: 1.05rem; }
+  .brand { display: grid; gap: 12px; justify-items: start; }
+  .brand .logo { display: inline-block; background: #FFFFFF; border: 1px solid var(--line); border-radius: 12px; padding: 10px 16px; line-height: 0; }
+  .brand .logo img { width: min(100%, 300px); height: auto; display: block; }
   .facts { display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--ink-2); font-size: .95rem; }
   .facts span b { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
 
@@ -235,7 +238,10 @@
 
 <div class="wrap">
   <header>
-    <p class="eyebrow">Colegiul Național „Emil Racoviță” Cluj-Napoca · Ciclul primar</p>
+    <div class="brand">
+      <a class="logo" href="https://e-racovita.ro/" target="_blank" rel="noopener" title="Site-ul oficial al colegiului"><img src="__LOGO__" alt="Colegiul Național „Emil Racoviță” Cluj-Napoca" width="400" height="107"></a>
+      <p class="eyebrow">Ciclul primar · Str. Horea nr. 52 · Pagina reprezentanților părinților</p>
+    </div>
     <h1>Masa copiilor: alegem firma de catering</h1>
     <p class="lede">Aici găsiți, într-un singur loc, ce s-a discutat la ședința părinților, ofertele primite, ce se întâmplă la degustare și de când pornește masa.</p>
     <div class="facts">
@@ -247,7 +253,7 @@
 
   <div class="now">
     <p class="eyebrow">Unde suntem acum</p>
-    <p><strong>Degustarea de azi, vineri 11 septembrie, a avut loc.</strong> Au fost calificate 3 firme: Camigo (33 lei), Black Swan Events (32 lei) și Rafinato Events (30 lei). <strong>Părinții votează firma preferată până astăzi, ora 20:00</strong>, un vot pentru fiecare copil înscris la masă. Decizia se ia prin centralizarea voturilor, ca masa să poată porni <strong>luni, 14 septembrie</strong>. <a href="#vot">Către vot ↓</a></p>
+    <p><strong>Degustarea de azi, vineri 11 septembrie, a avut loc.</strong> Au fost calificate 3 firme: Camigo (33 lei), Black Swan Events (32 lei) și Rafinato Events (30 lei). <strong>Părinții votează firma preferată până astăzi, ora 20:00, în grupul de WhatsApp al clasei</strong>, un vot pentru fiecare copil înscris la masă. Decizia se ia prin centralizarea voturilor, ca masa să poată porni <strong>luni, 14 septembrie</strong>. <a href="#vot">Către vot ↓</a></p>
   </div>
 
   <div class="timeline">
@@ -687,9 +693,9 @@
           <div class="opt"><span class="on">Black Swan Events</span><span class="op">32 lei</span><a href="#oferta-blackswan">oferta</a></div>
           <div class="opt"><span class="on">Rafinato Events</span><span class="op">30 lei</span><a href="#oferta-rafinato">oferta</a></div>
         </div>
-        <div class="row">
-          <a class="btn" id="pollBtn" href="__POLL_URL__" target="_blank" rel="noopener">Votează ↗</a>
-          <span class="hint" id="pollHint">Un vot pentru fiecare copil înscris la masă.</span>
+        <div class="idea">
+          <p class="eyebrow">Cum se votează</p>
+          <p><strong>Votul se dă în grupul de WhatsApp al fiecărei clase</strong>, prin sondajul postat acolo. Un singur vot pentru fiecare copil înscris la masă, dat de un singur părinte sau reprezentant legal. Reprezentanții claselor centralizează voturile după ora 20:00.</p>
         </div>
       </div>
     </article>
@@ -851,18 +857,11 @@
   </section>
 
   <footer>
-    <p>Pagină informativă a reprezentanților părinților, ciclul primar, Colegiul Național „Emil Racoviță” Cluj-Napoca.</p>
+    <p>Pagină informativă realizată de reprezentanții părinților de la ciclul primar, Colegiul Național „Emil Racoviță” Cluj-Napoca. Nu este site-ul oficial al colegiului; acela este <a href="https://e-racovita.ro/" target="_blank" rel="noopener">e-racovita.ro</a>. Sigla aparține colegiului.</p>
     <p>Rezumatul discuției provine din transcrierea ședinței din 10 septembrie 2026. Datele despre firme sunt cele din tabelul de selecție al comisiei.</p>
   </footer>
 </div>
 <script>
-  (function () {
-    var pb = document.getElementById('pollBtn'), ph = document.getElementById('pollHint');
-    if (pb && pb.getAttribute('href').indexOf('__') === 0) {
-      pb.hidden = true;
-      ph.textContent = 'Linkul sondajului se adaugă aici imediat ce este activ. Până atunci, votul se transmite pe grupul clasei, către reprezentantul clasei.';
-    }
-  })();
   (function () {
     var btn = document.getElementById('formBtn');
     var hint = document.getElementById('formHint');
