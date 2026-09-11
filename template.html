@@ -156,6 +156,29 @@
   details.menu tbody th { background: transparent; text-transform: none; letter-spacing: 0; font-size: .9rem; color: var(--ink); white-space: nowrap; }
   details.menu td { font-size: .9rem; color: var(--ink-2); }
 
+  /* Tasting result, gallery, vote */
+  .result { background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--accent); border-radius: 14px; padding: 18px 20px; display: grid; gap: 12px; }
+  .result .eyebrow { color: var(--accent); }
+  .finalists { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+  .fin { background: var(--accent-soft); border-radius: 10px; padding: 12px 14px; display: grid; gap: 2px; }
+  .fin .fn { font-weight: 700; }
+  .fin .fp { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.35rem; font-variant-numeric: tabular-nums; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .gallery figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: grid; }
+  .gallery img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+  .gallery figcaption { padding: 10px 12px; font-size: .88rem; color: var(--ink-2); }
+  .poll { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; display: grid; gap: 10px; max-width: 66ch; }
+  .poll p { color: var(--ink); }
+  .options { display: grid; gap: 8px; }
+  .opt { display: flex; align-items: baseline; gap: 14px; background: var(--warm-soft); color: var(--warm-ink); border-radius: 10px; padding: 12px 16px; }
+  .opt .on { font-weight: 700; flex: 1; }
+  .opt .op { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+  .opt a { color: inherit; font-size: .9rem; }
+  #vot .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  #vot .btn { background: var(--accent); color: var(--accent-ink); }
+  #vot .hint { color: var(--ink-2); font-size: .92rem; }
+  td small { color: var(--ink-3); font-weight: 400; font-size: .8rem; }
+
   /* Summary (minutes) */
   .minutes { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; display: grid; gap: 16px; }
   .minutes h3 { font-size: 1rem; }
@@ -218,13 +241,13 @@
     <div class="facts">
       <span>Locul servirii: <b>Str. Horea nr. 52</b></span>
       <span>Volum estimat: <b>~180 meniuri/zi</b></span>
-      <span>Actualizat: <b>10 septembrie 2026</b></span>
+      <span>Actualizat: <b>11 septembrie 2026, seara</b></span>
     </div>
   </header>
 
   <div class="now">
     <p class="eyebrow">Unde suntem acum</p>
-    <p><strong>Ședința de azi, joi 10 septembrie, ora 17:00, a avut loc.</strong> Au sosit 5 plicuri cu oferte. Mâine, <strong>vineri 11 septembrie, ora 12:00</strong>, 4 firme vin la școală cu porții de probă pentru degustare. Firma se alege mâine, ca masa să poată porni <strong>luni, 14 septembrie</strong>.</p>
+    <p><strong>Degustarea de azi, vineri 11 septembrie, a avut loc.</strong> Au fost calificate 3 firme: Camigo (33 lei), Black Swan Events (32 lei) și Rafinato Events (30 lei). <strong>Părinții votează firma preferată până astăzi, ora 20:00</strong>, un vot pentru fiecare copil înscris la masă. Decizia se ia prin centralizarea voturilor, ca masa să poată porni <strong>luni, 14 septembrie</strong>. <a href="#vot">Către vot ↓</a></p>
   </div>
 
   <div class="timeline">
@@ -265,6 +288,11 @@
               <span><span class="t">Broșura Black Swan Events (PDF, 5 pagini)</span><br><span class="d">Meniul propus pe 4 săptămâni, gramaje, principii de gătire și sistemul de livrare în thermoboxuri.</span></span>
               <span class="go">__CAMIGO_GO__</span>
             </a>
+            <a class="doc" href="__RAFINATO_URL__" target="_blank" rel="noopener">
+              <span class="ic">PDF</span>
+              <span><span class="t">Planul de meniu Rafinato Events (PDF scanat, 4 pagini)</span><br><span class="d">Meniul pe 2 săptămâni, luni–vineri, cu gramaje, ingrediente principale și alergeni pentru fiecare preparat.</span></span>
+              <span class="go">__CAMIGO_GO__</span>
+            </a>
             <a class="doc" href="__VIBES_JPG__" target="_blank" rel="noopener">
               <span class="ic">JPG</span>
               <span><span class="t">Scrisoarea de ofertă Vibes Bistro Bar (imagine)</span><br><span class="d">Prețul, compoziția meniului, servirea și curățenia asigurate de personalul lor, porții suplimentare incluse.</span></span>
@@ -300,7 +328,7 @@
                   <th class="num">Preț / meniu</th>
                   <th>Observații</th>
                   <th>Unde livrează deja</th>
-                  <th>Mâine</th>
+                  <th>Stadiu</th>
                 </tr>
               </thead>
               <tbody>
@@ -309,28 +337,28 @@
                   <td class="num">33 lei</td>
                   <td>Au livrat la CNER anul trecut, opiniile sunt destul de ok. Supă + fel principal + pâine + gustare, luni–joi. <a href="#oferta-camigo">Detalii</a></td>
                   <td>CNER, Bălcescu, grădinițele și școala Camigo</td>
-                  <td><span class="pill warm">Vine la degustare</span></td>
+                  <td><span class="pill ok">Calificată, la vot</span></td>
                 </tr>
                 <tr>
                   <td><span class="firm">Vibes Bistro Bar</span></td>
                   <td class="num">32 lei</td>
                   <td>Supă/ciorbă + fel 2 (cu salată unde e cazul) + desert, luni–joi. Servirea și curățenia cu personal propriu; porții suplimentare incluse. <a href="#oferta-vibes">Detalii</a></td>
                   <td>Școala Ioan Bob, Liceul Barițiu</td>
-                  <td><span class="pill warm">Vine la degustare</span></td>
+                  <td><span class="pill off">Necalificată</span></td>
                 </tr>
                 <tr>
                   <td><span class="firm">Rafinato Events</span></td>
-                  <td class="num">32 lei</td>
-                  <td>Fel 1 + fel 2 + desert. De lămurit dacă au personal de servire. Ofertă primită doar în plic, pe hârtie; documentul digital urmează.</td>
+                  <td class="num">30 lei<br><small>în plic: 32</small></td>
+                  <td>Supă/ciorbă + fel 2 + desert, luni–vineri, meniu pe 2 săptămâni cu gramaje și alergeni. <a href="#oferta-rafinato">Detalii</a></td>
                   <td>CBC, Royal School, Terapia</td>
-                  <td><span class="pill warm">Vine la degustare</span></td>
+                  <td><span class="pill ok">Calificată, la vot</span></td>
                 </tr>
                 <tr>
                   <td><span class="firm">Black Swan</span></td>
-                  <td class="num">34 lei</td>
+                  <td class="num">32 lei<br><small>în plic: 34</small></td>
                   <td>Recomandare de la grădinița Străjerul Pitic. Supă + fel principal + salată + chiflă + desert, luni–vineri, livrat în thermoboxuri individuale. <a href="#oferta-blackswan">Detalii</a></td>
                   <td>Spitalul Regina Maria, Codemy, Bridge Language</td>
-                  <td><span class="pill warm">Vine la degustare</span></td>
+                  <td><span class="pill ok">Calificată, la vot</span></td>
                 </tr>
                 <tr class="out">
                   <td><span class="firm">La Casa</span></td>
@@ -342,12 +370,12 @@
               </tbody>
             </table>
           </div>
-          <p class="tnote">Prețul este per meniu, așa cum a fost ofertat în plic. Include tot ce cere caietul de sarcini: mâncare, transport, personal de servire, curățenie.</p>
+          <p class="tnote">Prețul este per meniu și include tot ce cere caietul de sarcini: mâncare, transport, personal de servire, curățenie. Unde apare „în plic”, prețul a fost actualizat de firmă în urma discuțiilor de la degustare. Cele 3 firme calificate îndeplinesc condițiile din caietul de sarcini: autorizații sanitare, capacitate de livrare, structura meniului.</p>
         </div>
 
         <div class="block" id="oferta-camigo">
           <h3>Ofertele în detaliu</h3>
-          <p class="sub">Publicăm aici ofertele scrise, pe măsură ce le primim în format electronic. Avem până acum ofertele Camigo, Black Swan și Vibes Bistro Bar. Rafinato Events a trimis oferta doar în plic, pe hârtie; o vom publica aici când primim și documentul în format digital.</p>
+          <p class="sub">Publicăm aici ofertele scrise, pe măsură ce le primim în format electronic. Sunt publicate toate cele patru oferte primite în format digital: Camigo, Black Swan, Rafinato Events și Vibes Bistro Bar.</p>
           <div class="offer">
             <div class="offer-head">
               <div>
@@ -407,11 +435,11 @@
             <div class="offer-head">
               <div>
                 <p class="eyebrow">Black Swan Events · Restaurant Meridian, Londoner Group</p>
-                <h3>34 lei / meniu / zi</h3>
+                <h3>32 lei / meniu / zi</h3>
               </div>
               <a class="offer-link" href="__BSE_URL__" target="_blank" rel="noopener">Broșura completă (PDF) ↗</a>
             </div>
-            <p class="tnote">Prețul este cel din plicul depus. Broșura nu conține prețul, doar meniul și modul de lucru.</p>
+            <p class="tnote">Preț actualizat de firmă după degustare; în plicul depus era 34 lei. Broșura nu conține prețul, doar meniul și modul de lucru.</p>
             <div class="offer-grid">
               <div class="offer-col">
                 <p class="offer-t">Pe farfurie, zilnic</p>
@@ -461,10 +489,61 @@
             </details>
           </div>
 
+          <div class="offer" id="oferta-rafinato">
+            <div class="offer-head">
+              <div>
+                <p class="eyebrow">Rafinato Events S.R.L. · Cluj-Napoca</p>
+                <h3>30 lei / meniu / zi</h3>
+              </div>
+              <a class="offer-link" href="__RAFINATO_URL__" target="_blank" rel="noopener">Planul de meniu (PDF) ↗</a>
+            </div>
+            <p class="tnote">Preț actualizat de firmă după degustare; în plicul depus era 32 lei. Documentul digital primit este planul de meniu detaliat, datat 8 septembrie 2026.</p>
+            <div class="offer-grid">
+              <div class="offer-col">
+                <p class="offer-t">Pe farfurie, zilnic</p>
+                <ul>
+                  <li><b>240–260 ml</b> supă sau ciorbă</li>
+                  <li>Fel principal: <b>120 g</b> carne sau pește plus <b>150–200 g</b> garnitură (piure, orez, mămăliguță, legume)</li>
+                  <li>Desert: fruct proaspăt <b>60–150 g</b> sau prăjitură de casă <b>60 g</b></li>
+                  <li>Pentru fiecare preparat: ingredientele principale și alergenii, în document</li>
+                </ul>
+              </div>
+              <div class="offer-col">
+                <p class="offer-t">Cum arată meniul</p>
+                <ul>
+                  <li>Meniu <b>luni–vineri</b>, rotație pe <b>2 săptămâni</b></li>
+                  <li>Preparate la cuptor sau la grătar: pulpe de pui, chifteluțe, cod, ostropel, cotlet; o zi cu pește pe săptămână</li>
+                  <li>Orez integral, mămăliguță, cuș-cuș, legume în fiecare zi prin ciorbă sau garnitură</li>
+                  <li>Deserturi de casă cu zahăr redus: prăjitură cu mere, chec, tartă cu brânză, negresă cu roșcove</li>
+                </ul>
+              </div>
+              <div class="offer-col">
+                <p class="offer-t">Experiență și de clarificat</p>
+                <ul>
+                  <li>Livrează deja la CBC, Royal School și Terapia</li>
+                  <li>Documentul acoperă meniul; personalul de servire, transportul, curățenia și meniurile pentru alergii au fost discutate la degustare și rămân de confirmat în contract</li>
+                </ul>
+              </div>
+            </div>
+            <details class="menu">
+              <summary>Meniul propus, cele 2 săptămâni</summary>
+              <p class="tnote" style="margin-top:8px">Transcris din documentul scanat; alergenii pe fiecare preparat sunt în PDF. Prezenți frecvent: țelină în ciorbe, gluten, ouă, lapte.</p>
+              <div class="tablewrap">
+                <table>
+                  <thead><tr><th></th><th>Luni</th><th>Marți</th><th>Miercuri</th><th>Joi</th><th>Vineri</th></tr></thead>
+                  <tbody>
+                    <tr><th>Săpt. 1</th><td>Ciorbă de văcuță cu legume și smântână · Pulpe de pui la cuptor cu piure de cartofi · Mere</td><td>Supă-cremă de legume cu crutoane · Chifteluțe de pui la cuptor în sos de roșii, cu orez integral și legume · Banane</td><td>Ciorbă de pui a la grec · Tocăniță de vită cu mămăliguță · Prăjitură de casă cu mere și scorțișoară</td><td>Supă de pui cu tăiței de casă · File de cod la cuptor cu mazăre sote și lămâie · Chec cu fructe de sezon</td><td>Ciorbă de cartofi cu afumătură · Mâncare de fasole verde cu piept de pui la grătar · Tartă cu brânză dulce de vaci și stafide</td></tr>
+                    <tr><th>Săpt. 2</th><td>Supă de pui cu găluște din griș · Ostropel de pui cu piure de cartofi · Pere</td><td>Ciorbă țărănească de porc cu legume · Șnițel parizian cu orez cu legume · Panna cotta cu sos de fructe de pădure</td><td>Ciorbă de perișoare · Cuș-cuș cu legume și ciocănele de pui la cuptor · Nectarină</td><td>Supă-cremă de dovlecei și cartofi cu crutoane · Cotlet de porc cu sos de ciuperci și cartofi la cuptor · Portocale sau mandarine</td><td>Ciorbă de legume proaspete cu zdrențe de ou · Spaghete din grâu dur cu carne tocată de pui și sos de roșii · Negresă de casă cu pudră de roșcove</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+
           <div class="offer" id="oferta-vibes">
             <div class="offer-head">
               <div>
-                <p class="eyebrow">Vibes Bistro Bar</p>
+                <p class="eyebrow">Vibes Bistro Bar · nu a fost calificată pentru etapa de vot</p>
                 <h3>32 lei / meniu livrat</h3>
               </div>
               <span style="display:flex;gap:14px;flex-wrap:wrap"><a class="offer-link" href="__VIBES_JPG__" target="_blank" rel="noopener">Scrisoarea de ofertă ↗</a><a class="offer-link" href="__VIBES_XLSX__">Meniul detaliat (Excel) ↓</a></span>
@@ -558,18 +637,59 @@
     </article>
 
     <!-- FAZA 2 -->
-    <article class="stop next" id="degustare">
+    <article class="stop done" id="degustare">
       <div class="dot"><i></i></div>
       <div class="stop-body">
-        <p class="when"><time datetime="2026-09-11T12:00">Vineri, 11 septembrie 2026 · 12:00</time> <span class="pill warm">Mâine</span></p>
-        <h2>Faza 2. Degustarea și alegerea firmei</h2>
-        <p class="sub">Din cele 5 oferte, <strong>4 firme</strong> vin la școală cu câte <strong>5–6 porții</strong> de probă: Camigo, Vibes Bistro Bar, Rafinato Events și Black Swan. Mâine se alege firma cu care pornim.</p>
+        <p class="when"><time datetime="2026-09-11T12:00">Vineri, 11 septembrie 2026 · 12:00</time> <span class="pill ok">Încheiată</span></p>
+        <h2>Faza 2. Degustarea</h2>
+        <p class="sub">Cele 4 firme au venit la școală cu porții de probă, în forma în care ar livra zilnic: Camigo, Black Swan Events, Rafinato Events și Vibes Bistro Bar. Părinții și copiii prezenți au gustat, au comparat ambalajele și au discutat direct cu reprezentanții firmelor.</p>
 
-        <div class="steps">
-          <div class="step"><span class="k"></span><span><span class="t">Fiecare firmă aduce porțiile așa cum le va livra copiilor</span><br><span class="d">Aceeași compoziție, gramaj și calitate ca în ofertă. Nu se acceptă porții „de vitrină”, mai bune decât cele din contract.</span></span></div>
-          <div class="step"><span class="k"></span><span><span class="t">Se gustă și se compară</span><br><span class="d">Gust, aspect, textură, temperatură, cât de atractiv e pentru copii, cât de ușor se servește.</span></span></div>
-          <div class="step"><span class="k"></span><span><span class="t">Clarificări față în față</span><br><span class="d">Personal de servire, model de servire (porționat, vrac sau hibrid), logistică, alergii, cine răspunde la sesizări.</span></span></div>
-          <div class="step"><span class="k"></span><span><span class="t">Decizia</span><br><span class="d">Nu se alege doar după preț. Contează calitatea meniurilor și a ingredientelor, gramajele, varietatea, degustarea, experiența, logistica, servirea, curățenia, alergiile și colaborarea cu personalul medical și cu părinții.</span></span></div>
+        <div class="result">
+          <p class="eyebrow">Rezultatul degustării</p>
+          <p><strong>Au fost calificate 3 firme</strong>, toate îndeplinind condițiile din caietul de sarcini: autorizații sanitare, capacitate de livrare, structura meniului. Prețurile finale, per meniu:</p>
+          <div class="finalists">
+            <div class="fin"><span class="fn">Camigo</span><span class="fp">33 lei</span></div>
+            <div class="fin"><span class="fn">Black Swan Events</span><span class="fp">32 lei</span></div>
+            <div class="fin"><span class="fn">Rafinato Events</span><span class="fp">30 lei</span></div>
+          </div>
+          <p class="tnote">Vibes Bistro Bar nu a fost calificată pentru etapa de vot.</p>
+        </div>
+
+        <div class="block">
+          <h3>Imagini de la degustare</h3>
+          <div class="gallery">
+            <figure><img src="__POZE__degustare-03-camigo.jpeg" alt="Porțiile Camigo în caserole individuale cu capac, scoase din thermobox" loading="lazy" width="1600" height="1200"><figcaption>Camigo: caserole individuale, supa separat, din thermobox</figcaption></figure>
+            <figure><img src="__POZE__degustare-04-black-swan-thermobox.jpeg" alt="Cutiile termoizolante Black Swan, albe, cu compartimente, așezate pe masă" loading="lazy" width="1600" height="1200"><figcaption>Black Swan: cutii termoizolante individuale, reutilizabile</figcaption></figure>
+            <figure><img src="__POZE__degustare-05-rafinato-deserturi.jpeg" alt="Masa Rafinato cu preparate etichetate: cartofi natur, pulpă de pui la cuptor, legume, paste, clătite, chec" loading="lazy" width="1600" height="1200"><figcaption>Rafinato: preparate etichetate, feluri principale și deserturi</figcaption></figure>
+            <figure><img src="__POZE__degustare-02-vibes.jpeg" alt="Masa Vibes: caserole negre cu supă, crutoane, pâine și salată de varză" loading="lazy" width="1600" height="1200"><figcaption>Vibes: supă în caserole, crutoane, pâine, salată</figcaption></figure>
+            <figure><img src="__POZE__degustare-01-portii-ambalate.jpeg" alt="Caserole albe biodegradabile cu porții, marcate cu inițiale, și salată în cutiuțe" loading="lazy" width="1600" height="1200"><figcaption>Porții ambalate, pregătite pentru gustat</figcaption></figure>
+          </div>
+          <p class="tnote">Am publicat doar imaginile în care nu apar fețele copiilor. Restul fotografiilor rămân la comisia de părinți.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- VOT -->
+    <article class="stop next" id="vot">
+      <div class="dot"><i></i></div>
+      <div class="stop-body">
+        <p class="when"><time datetime="2026-09-11T20:00">Vineri, 11 septembrie 2026 · până la ora 20:00</time> <span class="pill warm">Acum</span></p>
+        <h2>Faza 3. Votul părinților</h2>
+        <blockquote class="poll">
+          <p>Stimați părinți,</p>
+          <p>În procedura de selecție pentru serviciul de catering au fost calificate 3 firme, toate îndeplinind condițiile din caietul de sarcini (autorizații sanitare, capacitate de livrare, structura meniului etc.).</p>
+          <p>Vă rugăm să vă exprimați opțiunea privind firma pe care o preferați, prin sondajul de mai jos. Se alege <strong>o singură variantă</strong>, iar votul se dă de către <strong>un singur părinte sau reprezentant legal pentru fiecare copil</strong> care va participa la programul de after school.</p>
+          <p><strong>Termen de răspuns: astăzi, 11.09.2026, ora 20:00.</strong></p>
+          <p>Decizia va fi luată prin centralizarea tuturor voturilor.</p>
+        </blockquote>
+        <div class="options">
+          <div class="opt"><span class="on">Camigo</span><span class="op">33 lei</span><a href="#oferta-camigo">oferta</a></div>
+          <div class="opt"><span class="on">Black Swan Events</span><span class="op">32 lei</span><a href="#oferta-blackswan">oferta</a></div>
+          <div class="opt"><span class="on">Rafinato Events</span><span class="op">30 lei</span><a href="#oferta-rafinato">oferta</a></div>
+        </div>
+        <div class="row">
+          <a class="btn" id="pollBtn" href="__POLL_URL__" target="_blank" rel="noopener">Votează ↗</a>
+          <span class="hint" id="pollHint">Un vot pentru fiecare copil înscris la masă.</span>
         </div>
       </div>
     </article>
@@ -580,7 +700,7 @@
       <div class="stop-body">
         <p class="when"><time datetime="2026-09-14">Luni, 14 septembrie 2026</time></p>
         <h2>Pornește masa</h2>
-        <p class="sub">Dacă mâine se alege firma, contractele se încheie cu reprezentanții părinților fiecărei clase, la același preț și în aceleași condiții pentru toate clasele, iar servirea începe de luni.</p>
+        <p class="sub">Firma se stabilește prin centralizarea voturilor. Contractele se încheie cu reprezentanții părinților fiecărei clase, la același preț și în aceleași condiții pentru toate clasele, iar servirea începe de luni.</p>
       </div>
     </article>
   </div>
@@ -736,6 +856,13 @@
   </footer>
 </div>
 <script>
+  (function () {
+    var pb = document.getElementById('pollBtn'), ph = document.getElementById('pollHint');
+    if (pb && pb.getAttribute('href').indexOf('__') === 0) {
+      pb.hidden = true;
+      ph.textContent = 'Linkul sondajului se adaugă aici imediat ce este activ. Până atunci, votul se transmite pe grupul clasei, către reprezentantul clasei.';
+    }
+  })();
   (function () {
     var btn = document.getElementById('formBtn');
     var hint = document.getElementById('formHint');
